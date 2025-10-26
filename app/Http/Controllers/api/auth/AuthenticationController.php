@@ -54,4 +54,14 @@ class AuthenticationController extends Controller
             'token_type' => 'Bearer',
         ], 200);
     }
+
+    public function logout(Request $request)
+    {
+        // Delete only the current token
+        $request->user()->currentAccessToken()->delete();
+
+        return response()->json([
+            'message' => 'Logged out successfully.',
+        ]);
+    }
 }

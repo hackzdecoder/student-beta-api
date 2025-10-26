@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('/login', [AuthenticationController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function () { 
+    Route::get('/logout', [AuthenticationController::class, 'logout']);
     Route::get('/attendance', [AttendanceController::class, 'attendance']);
 });
 

@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'default' => env('DB_MAIN_CONNECTION'),
+    'default' => env('DB_CONNECTION'),
 
     /*
     |--------------------------------------------------------------------------
@@ -31,15 +31,15 @@ return [
 
     'connections' => [
 
-        'main_database' => [
+        'school_manager_connect' => [
             'driver' => 'mysql',
             'url' => env('DB_URL'),
             'host' => env('DB_HOST'),
             'port' => env('DB_PORT'),
             'username' => env('DB_USERNAME'),
             'password' => env('DB_PASSWORD'),
-            'database' => env('DB_MAIN_DATABASE'),
-            'unix_socket' => env('DB_SOCKET'),
+            'database' => env('DB_DATABASE', 'sm_db_users_main'),
+            'unix_socket' => env('DB_SOCKET', ''),
             'charset' => env('DB_CHARSET', 'utf8mb4'),
             'collation' => env('DB_COLLATION', 'utf8mb4_unicode_ci'),
             'prefix' => '',
@@ -51,26 +51,6 @@ return [
             ]) : [],
         ],
 
-        'sch_terminal_one_database' => [
-            'driver' => 'mysql',
-            'url' => env('DB_URL'),
-            'host' => env('DB_HOST'),
-            'port' => env('DB_PORT'),
-            'username' => env('DB_USERNAME'),
-            'password' => env('DB_PASSWORD'),
-            'database' => env('DB_SCH_TERMINAL_ONE_DATABASE'),
-            'unix_socket' => env('DB_SOCKET'),
-            'charset' => env('DB_CHARSET', 'utf8mb4'),
-            'collation' => env('DB_COLLATION', 'utf8mb4_unicode_ci'),
-            'prefix' => '',
-            'prefix_indexes' => true,
-            'strict' => true,
-            'engine' => null,
-            'options' => extension_loaded('pdo_mysql') ? array_filter([
-                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
-            ]) : [],
-        ],
-        
     ],
 
     /*
